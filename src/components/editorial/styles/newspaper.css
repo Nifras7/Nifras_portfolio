@@ -1,0 +1,573 @@
+/* ==========================================================================
+   AUTHENTIC OLD VINTAGE NEWSPAPER EDITORIAL SYSTEM
+   Rag-Pulp Newsprint, Classical Letterpress Typography, Lithograph Plates
+   Three Independent Publications: The Work Chronicle, The Career Times, The Technical Journal
+   ========================================================================== */
+
+:root {
+  /* Warm aged newsprint palette */
+  --news-paper: #F4EEDD;
+  --news-paper-light: #F8F4E8;
+  --news-paper-dark: #ECE3CE;
+  --news-paper-back: #E3D8C1;
+  --news-paper-patina: #D8CCB2;
+
+  /* Antique printer's ink (deep charcoal-sepia letterpress) */
+  --news-ink: #221C18;
+  --news-ink-soft: #38302A;
+  --news-ink-muted: #5C524A;
+  --news-ink-subtle: #8C8075;
+
+  /* Traditional broadsheet hairline rules */
+  --news-rule: rgba(44, 37, 32, 0.28);
+  --news-rule-heavy: #221C18;
+
+  /* Classical Renaissance Serif Dominant Typography */
+  --news-font-serif: 'EB Garamond', Georgia, 'Times New Roman', serif;
+  --news-font-sans: 'Onest', 'Inter', system-ui, sans-serif;
+  --news-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ==========================================================================
+   MAIN PUBLICATION WRAPPER
+   ========================================================================== */
+
+.editorial-experience-section {
+  position: relative;
+  width: 100%;
+  padding: 4.5rem 0 6rem;
+  background-color: var(--background);
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.editorial-sectors-stack {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* ==========================================================================
+   PHYSICAL 3D NEWSPAPER SHEET ENGINE (AGED RAG-PULP NEWSPRINT)
+   ========================================================================== */
+
+.newspaper-physical-deck {
+  position: relative;
+  width: 100%;
+  perspective: 2500px;
+  perspective-origin: 50% 40%;
+  margin: 0 auto;
+}
+
+/* Stationary Under-Sheet (revealed beneath during physical page turn) */
+.newspaper-under-sheet {
+  position: relative;
+  width: 100%;
+  background: radial-gradient(circle at 50% 30%, var(--news-paper-light) 0%, var(--news-paper) 60%, var(--news-paper-dark) 100%);
+  color: var(--news-ink);
+  border-radius: 2px;
+  border: 1px solid rgba(80, 60, 40, 0.35);
+  outline: 1px solid rgba(80, 60, 40, 0.2);
+  outline-offset: -10px;
+  box-shadow:
+    inset 0 0 80px rgba(135, 105, 65, 0.15),
+    0 2px 5px rgba(45, 35, 25, 0.08),
+    0 20px 48px -10px rgba(35, 25, 15, 0.18);
+  padding: clamp(2rem, 4.5vw, 3.75rem);
+  z-index: 1;
+}
+
+/* Turning Top Leaf */
+.newspaper-turning-leaf {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  will-change: transform;
+  z-index: 10;
+}
+
+/* Front Face of Turning Sheet */
+.newspaper-leaf-front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, var(--news-paper-light) 0%, var(--news-paper) 60%, var(--news-paper-dark) 100%);
+  color: var(--news-ink);
+  border-radius: 2px;
+  border: 1px solid rgba(80, 60, 40, 0.35);
+  outline: 1px solid rgba(80, 60, 40, 0.2);
+  outline-offset: -10px;
+  box-shadow:
+    inset 0 0 80px rgba(135, 105, 65, 0.15),
+    0 2px 5px rgba(45, 35, 25, 0.08),
+    0 20px 48px -10px rgba(35, 25, 15, 0.18);
+  padding: clamp(2rem, 4.5vw, 3.75rem);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Reverse Back Face of Turning Sheet (Newsprint reverse bleed-through) */
+.newspaper-leaf-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, var(--news-paper-back) 0%, var(--news-paper-patina) 100%);
+  border-radius: 2px;
+  border: 1px solid rgba(80, 60, 40, 0.35);
+  padding: clamp(2rem, 4.5vw, 3.75rem);
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: inset 0 0 60px rgba(100, 75, 45, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Aged newsprint column watermark on the reverse sheet */
+.newspaper-leaf-back::before {
+  content: '';
+  position: absolute;
+  inset: 2.5rem;
+  border: 1px dashed rgba(44, 37, 32, 0.2);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 19px,
+      rgba(44, 37, 32, 0.05) 20px,
+      rgba(44, 37, 32, 0.05) 21px
+    );
+  pointer-events: none;
+}
+
+/* Subtle vertical center fold crease */
+.newspaper-under-sheet::before,
+.newspaper-leaf-front::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(60, 45, 30, 0.08) 0%,
+    rgba(60, 45, 30, 0.18) 25%,
+    rgba(60, 45, 30, 0.06) 50%,
+    rgba(60, 45, 30, 0.18) 75%,
+    rgba(60, 45, 30, 0.08) 100%
+  );
+  box-shadow: -1px 0 3px rgba(45, 35, 25, 0.04), 1px 0 3px rgba(255, 255, 255, 0.4);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* ==========================================================================
+   VINTAGE MASTHEAD SYSTEM
+   ========================================================================== */
+
+.newspaper-masthead {
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 4px double var(--news-rule-heavy);
+  position: relative;
+  z-index: 5;
+}
+
+.masthead-top-dateline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.65rem;
+  border-bottom: 1px solid var(--news-rule);
+  font-family: var(--news-font-serif);
+  font-size: 0.75rem;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  color: var(--news-ink-muted);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.masthead-main-title {
+  font-family: var(--news-font-serif);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  text-align: center;
+  color: var(--news-ink);
+  margin: 0.45rem 0;
+  text-transform: uppercase;
+  text-shadow: 0.5px 0.5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.masthead-subtitle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--news-rule);
+  font-family: var(--news-font-serif);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--news-ink-soft);
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.masthead-sheet-counter {
+  font-family: var(--news-font-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--news-ink);
+  padding: 0.2rem 0.65rem;
+  background: var(--news-paper-dark);
+}
+
+/* ==========================================================================
+   VINTAGE ARTICLE LAYOUT & BROADSHEET COLUMNS
+   ========================================================================== */
+
+.single-sheet-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: clamp(1.75rem, 3.5vw, 3rem);
+  position: relative;
+  z-index: 5;
+}
+
+.single-sheet-lead-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.single-sheet-supporting-col {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Hairline column divider rule */
+.single-sheet-supporting-col::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * clamp(0.85rem, 1.75vw, 1.5rem));
+  width: 1px;
+  background: var(--news-rule);
+}
+
+.sheet-article-headline {
+  font-family: var(--news-font-serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.85rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--news-ink);
+  margin-bottom: 0.85rem;
+}
+
+.sheet-article-deck {
+  font-family: var(--news-font-serif);
+  font-size: clamp(1.1rem, 1.6vw, 1.25rem);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--news-ink-soft);
+  margin-bottom: 1.15rem;
+  padding-bottom: 1.15rem;
+  border-bottom: 1px solid var(--news-rule);
+}
+
+.sheet-byline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--news-font-serif);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--news-ink-muted);
+  margin-bottom: 1.15rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+.sheet-body-text {
+  font-family: var(--news-font-serif);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--news-ink-soft);
+  margin-bottom: 1.15rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Classical 3-line drop cap */
+.sheet-drop-cap::first-letter {
+  font-family: var(--news-font-serif);
+  float: left;
+  font-size: 3.8rem;
+  line-height: 0.82;
+  padding-top: 0.15rem;
+  padding-right: 0.65rem;
+  padding-bottom: 0.1rem;
+  color: var(--news-ink);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   VINTAGE TYPESETTING STAMPS (NOT MODERN PILLS)
+   ========================================================================== */
+
+.news-tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.news-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--news-font-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--news-ink);
+  background: var(--news-paper-dark);
+  border: 1px solid rgba(44, 37, 32, 0.35);
+  box-shadow: 1px 1px 0 rgba(44, 37, 32, 0.1);
+}
+
+.news-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--news-font-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--news-ink);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--news-ink);
+  background: var(--news-paper-dark);
+  box-shadow: 2px 2px 0 var(--news-ink);
+  transition: all 0.2s ease;
+}
+
+.news-link-btn:hover {
+  background: var(--news-ink);
+  color: var(--news-paper);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--news-ink);
+}
+
+/* ==========================================================================
+   VINTAGE ENGRAVED FIGURE PLATES
+   ========================================================================== */
+
+.editorial-figure {
+  margin: 0.75rem 0 1.25rem;
+  background: var(--news-paper-dark);
+  border: 2px solid var(--news-ink);
+  padding: 0.75rem;
+  position: relative;
+  box-shadow: 2px 2px 0 rgba(44, 37, 32, 0.15);
+}
+
+.figure-canvas-box {
+  height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #EFE7D6;
+  border: 1px solid rgba(44, 37, 32, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.figure-caption {
+  font-family: var(--news-font-serif);
+  font-size: 0.8125rem;
+  color: var(--news-ink-soft);
+  margin-top: 0.65rem;
+  line-height: 1.45;
+  border-top: 1px solid var(--news-rule);
+  padding-top: 0.45rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Vintage KPI Letterpress Seal */
+.editorial-kpi-badge {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.5rem 0.85rem;
+  background: var(--news-paper-dark);
+  color: var(--news-ink);
+  border: 2px solid var(--news-ink);
+  box-shadow: 2px 2px 0 var(--news-ink);
+}
+
+.editorial-kpi-val {
+  font-family: var(--news-font-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.editorial-kpi-lbl {
+  font-family: var(--news-font-serif);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* ==========================================================================
+   VINTAGE IN-SHEET FOOTER & LETTERPRESS CONTROLS
+   ========================================================================== */
+
+.newspaper-sheet-footer {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 3px double var(--news-rule-heavy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+  z-index: 5;
+}
+
+.sheet-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--news-font-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--news-ink);
+  background: var(--news-paper-dark);
+  border: 1.5px solid var(--news-ink);
+  padding: 0.45rem 1rem;
+  box-shadow: 2px 2px 0 var(--news-ink);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sheet-nav-btn:hover:not(:disabled) {
+  background: var(--news-ink);
+  color: var(--news-paper);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--news-ink);
+}
+
+.sheet-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+  border-color: var(--news-rule);
+}
+
+.sheet-page-indicator-track {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.sheet-page-dot {
+  font-family: var(--news-font-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  background: var(--news-paper-dark);
+  color: var(--news-ink-muted);
+  border: 1px solid var(--news-rule);
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-page-dot.active {
+  background: var(--news-ink);
+  color: var(--news-paper);
+  border-color: var(--news-ink);
+  box-shadow: 1px 1px 0 var(--news-ink);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT
+   ========================================================================== */
+
+@media (max-width: 980px) {
+  .single-sheet-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .single-sheet-supporting-col::before {
+    display: none;
+  }
+  .newspaper-under-sheet::before,
+  .newspaper-leaf-front::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .newspaper-under-sheet,
+  .newspaper-leaf-front {
+    padding: 1.5rem 1.15rem;
+    outline-offset: -6px;
+  }
+  .masthead-top-dateline,
+  .masthead-subtitle-bar,
+  .newspaper-sheet-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .sheet-page-indicator-track {
+    order: -1;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .newspaper-turning-leaf {
+    transform: none !important;
+    transition: opacity 0.25s ease !important;
+  }
+}
