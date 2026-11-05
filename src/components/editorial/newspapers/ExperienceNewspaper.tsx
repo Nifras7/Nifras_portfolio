@@ -1,7 +1,7 @@
 import React from 'react';
-import { ExperienceStory, EXPERIENCES_DATA } from '../../data/experience';
+import { ExperienceStory, EXPERIENCES_DATA } from '../data/experience';
 import { ArrowLeft, ArrowRight, Building2, Calendar, MapPin, CheckCircle2 } from 'lucide-react';
-import { PhysicalNewspaperDeck } from '../../shared/PhysicalNewspaperDeck';
+import { PhysicalNewspaperDeck } from '../shared/PhysicalNewspaperDeck';
 
 interface ExperienceNewspaperProps {
   pageIndex: number;

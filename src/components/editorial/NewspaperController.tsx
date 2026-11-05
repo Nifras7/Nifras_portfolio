@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { WorkNewspaper } from './newspapers/WorkNewspaper/WorkNewspaper';
-import { ExperienceNewspaper } from './newspapers/ExperienceNewspaper/ExperienceNewspaper';
-import { SkillsNewspaper } from './newspapers/SkillsNewspaper/SkillsNewspaper';
+import { WorkNewspaper } from './newspapers/WorkNewspaper';
+import { ExperienceNewspaper } from './newspapers/ExperienceNewspaper';
+import { SkillsNewspaper } from './newspapers/SkillsNewspaper';
 import './styles/newspaper.css';
 
 export const NewspaperController: React.FC = () => {

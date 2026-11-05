@@ -1,7 +1,7 @@
 import React from 'react';
-import { SkillCategory, SKILL_CATEGORIES_DATA } from '../../data/skills';
+import { SkillCategory, SKILL_CATEGORIES_DATA } from '../data/skills';
 import { ArrowLeft, ArrowRight, Code2 } from 'lucide-react';
-import { PhysicalNewspaperDeck } from '../../shared/PhysicalNewspaperDeck';
+import { PhysicalNewspaperDeck } from '../shared/PhysicalNewspaperDeck';
 
 interface SkillsNewspaperProps {
   pageIndex: number;

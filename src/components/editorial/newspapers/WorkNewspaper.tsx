@@ -1,8 +1,8 @@
 import React from 'react';
-import { ProjectItem, PROJECTS_DATA } from '../../data/projects';
-import { PageFigureVisual } from '../../shared/PageFigureVisual';
+import { ProjectItem, PROJECTS_DATA } from '../data/projects';
+import { PageFigureVisual } from '../shared/PageFigureVisual';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
-import { PhysicalNewspaperDeck } from '../../shared/PhysicalNewspaperDeck';
+import { PhysicalNewspaperDeck } from '../shared/PhysicalNewspaperDeck';
 
 interface WorkNewspaperProps {
   pageIndex: number;
