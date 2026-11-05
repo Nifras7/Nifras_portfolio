@@ -21,24 +21,28 @@ export const App: React.FC = () => {
 
   return (
     <>
-      {/* 1. Static Navigation Bar - PRESERVED */}
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
+
+      {/* 1. Sticky Editorial Navigation Bar */}
       <ReplicaNavbar onOpenContact={handleOpenContact} />
 
-      {/* 2. Hero Section - PRESERVED */}
       <main id="main">
+        {/* 2. Hero Section with Analog Flip Calendar & B&W Portrait */}
         <ReplicaHero
           onOpenHireModal={handleOpenContact}
           onSeeWork={handleSeeWork}
         />
+
+        {/* 3. Three Independent Editorial Physical Broadside Newspapers */}
+        <NewspaperController />
       </main>
 
-      {/* 3. Three Independent Editorial Newspaper Experiences */}
-      <NewspaperController />
-
-      {/* 4. Editorial Footer - PRESERVED */}
+      {/* 4. Editorial Broadside Footer */}
       <Footer onOpenContact={handleOpenContact} />
 
-      {/* 5. Inquiry / Contact Popover Modal - PRESERVED */}
+      {/* 5. Inquiry / Direct Contact Modal */}
       <HireModal
         isOpen={hireModalOpen}
         onClose={() => setHireModalOpen(false)}

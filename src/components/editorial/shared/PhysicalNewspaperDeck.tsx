@@ -86,9 +86,9 @@ export function PhysicalNewspaperDeck<T>({
 
         const leafAnim = leaf.animate(
           [
-            { transform: 'rotateY(0deg)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.07)' },
+            { transform: 'rotateY(0deg)', boxShadow: 'var(--shadow-sm)' },
             { transform: 'rotateY(-90deg) skewY(-1deg)', offset: 0.5 },
-            { transform: 'rotateY(-180deg)', boxShadow: '-24px 16px 40px rgba(0, 0, 0, 0.16)' },
+            { transform: 'rotateY(-180deg)', boxShadow: 'var(--shadow-lg)' },
           ],
           {
             duration: FLIP_DURATION,
@@ -138,9 +138,9 @@ export function PhysicalNewspaperDeck<T>({
 
         const leafAnim = leaf.animate(
           [
-            { transform: 'rotateY(-180deg)', boxShadow: '-24px 16px 40px rgba(0, 0, 0, 0.16)' },
+            { transform: 'rotateY(-180deg)', boxShadow: 'var(--shadow-lg)' },
             { transform: 'rotateY(-90deg) skewY(1deg)', offset: 0.5 },
-            { transform: 'rotateY(0deg)', boxShadow: '0 4px 12px rgba(0, 0, 0, 0.07)' },
+            { transform: 'rotateY(0deg)', boxShadow: 'var(--shadow-sm)' },
           ],
           {
             duration: FLIP_DURATION,
@@ -293,10 +293,9 @@ export function PhysicalNewspaperDeck<T>({
         <div ref={backRef} className="newspaper-leaf-back">
           <div
             style={{
-              fontFamily: 'var(--news-font-serif)',
-              fontSize: '1.25rem',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
+              fontSize: 'var(--text-lg)',
+              fontWeight: 'var(--fw-heading)',
+              letterSpacing: 'var(--tracking-caps)',
               textTransform: 'uppercase',
               color: 'var(--news-ink-muted)',
               opacity: 0.45,
@@ -305,11 +304,10 @@ export function PhysicalNewspaperDeck<T>({
             DISPATCH ARCHIVES
           </div>
           <div
+            className="news-caps-label"
             style={{
-              fontFamily: 'var(--news-font-mono)',
-              fontSize: '0.6875rem',
               color: 'var(--news-ink-subtle)',
-              marginTop: '0.5rem',
+              marginTop: 'var(--space-2)',
             }}
           >
             MOHAMED NIFRAS · COMPILATION 2026

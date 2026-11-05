@@ -3,6 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#E8E4E0" />
+    <script>
+      // Apply saved theme before first paint to avoid a light/dark flash
+      try {
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-mode', 'dark');
+      } catch (e) {}
+    </script>
     <title>Mohamed Nifras — AI Engineer & Data Portfolio</title>
     <meta name="description" content="Mohamed Nifras is an AI Engineer and Data Analyst building intelligent systems that transform business data into decisions. Specializing in Python, ML, SQL, and LLMs." />
     
@@ -11,10 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Onest:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="/src/index.css" />
-    
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23121212'/><text x='16' y='21' font-family='sans-serif' font-size='14' font-weight='800' fill='%23FAF8F5' text-anchor='middle'>RT</text></svg>" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23121212'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' font-weight='700' fill='%23E8E4E0' text-anchor='middle'>N</text></svg>" />
   </head>
   <body>
     <div id="root"></div>

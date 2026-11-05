@@ -11,18 +11,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const serifFont = "'EB Garamond', Georgia, 'Times New Roman', serif";
-
   return (
-    <footer
-      style={{
-        borderTop: '1px solid var(--line)',
-        backgroundColor: 'var(--background)',
-        padding: '4.5rem 0 3.5rem',
-        position: 'relative',
-        fontFamily: serifFont,
-      }}
-    >
+    <footer className="site-footer">
       <div className="shell">
         <div
           style={{
@@ -30,36 +20,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             justifyContent: 'space-between',
             alignItems: 'flex-start',
             flexWrap: 'wrap',
-            gap: '2.5rem',
-            marginBottom: '3.5rem',
+            gap: 'var(--space-8)',
+            marginBottom: 'var(--space-12)',
           }}
         >
           {/* Brand & Introduction */}
-          <div style={{ maxWidth: '440px' }}>
-            <h3
-              style={{
-                fontFamily: serifFont,
-                fontSize: '1.85rem',
-                fontWeight: 600,
-                letterSpacing: '-0.015em',
-                color: 'var(--foreground)',
-                marginBottom: '0.65rem',
-              }}
-            >
-              Mohamed Nifras
-            </h3>
-            <p
-              style={{
-                fontFamily: serifFont,
-                fontSize: '1.05rem',
-                lineHeight: 1.6,
-                color: 'var(--muted)',
-                marginBottom: '1.5rem',
-              }}
-            >
+          <div className="footer-brand">
+            <h3 className="footer-name">Mohamed Nifras</h3>
+            <p className="footer-desc">
               CEO of AIstratX. AI Engineer & Data Analyst building intelligent computational frameworks that transform metrics into decisions.
             </p>
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <div>
               <a
                 href="https://github.com/Nifras7"
                 target="_blank"
@@ -68,13 +39,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.45rem 1rem',
-                  fontSize: '0.875rem',
-                  fontWeight: 600,
-                  fontFamily: serifFont,
+                  gap: 'var(--space-2)',
+                  padding: 'var(--space-2) var(--space-4)',
+                  fontWeight: 'var(--fw-emphasis)',
                   color: 'var(--foreground)',
-                  transition: 'background-color 0.2s ease',
                 }}
               >
                 <GithubIcon size={14} />
@@ -84,44 +52,32 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
           </div>
 
           {/* Quick Links */}
-          <div style={{ display: 'flex', gap: '3.5rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 'var(--space-12)', flexWrap: 'wrap' }}>
             <div>
-              <h4
-                style={{
-                  fontFamily: serifFont,
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.12em',
-                  color: 'var(--muted)',
-                  marginBottom: '1rem',
-                }}
-              >
-                Navigation
-              </h4>
-              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem' }}>
+              <h4 className="footer-col-title">Navigation</h4>
+              <ul className="footer-links-list">
                 <li>
-                  <a href="#home" style={{ fontFamily: serifFont, fontSize: '1rem', color: 'var(--foreground)', opacity: 0.85 }}>
+                  <a href="#home" className="footer-link-item">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="#work" style={{ fontFamily: serifFont, fontSize: '1rem', color: 'var(--foreground)', opacity: 0.85 }}>
+                  <a href="#work" className="footer-link-item">
                     Work
                   </a>
                 </li>
                 <li>
-                  <a href="#skills" style={{ fontFamily: serifFont, fontSize: '1rem', color: 'var(--foreground)', opacity: 0.85 }}>
+                  <a href="#skills" className="footer-link-item">
                     Skills
                   </a>
                 </li>
                 <li>
-                  <a href="#experience" style={{ fontFamily: serifFont, fontSize: '1rem', color: 'var(--foreground)', opacity: 0.85 }}>
+                  <a href="#experience" className="footer-link-item">
                     Experience
                   </a>
                 </li>
                 <li>
-                  <button onClick={onOpenContact} style={{ fontFamily: serifFont, fontSize: '1rem', color: 'var(--foreground)', opacity: 0.85 }}>
+                  <button onClick={onOpenContact} className="footer-link-item">
                     Contact
                   </button>
                 </li>
@@ -129,20 +85,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             </div>
 
             <div>
-              <h4
+              <h4 className="footer-col-title">Availability</h4>
+              <p
                 style={{
-                  fontFamily: serifFont,
-                  fontSize: '0.85rem',
-                  fontWeight: 600,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.12em',
-                  color: 'var(--muted)',
-                  marginBottom: '1rem',
+                  fontSize: 'var(--text-sm)',
+                  color: 'var(--foreground)',
+                  opacity: 0.85,
+                  lineHeight: 'var(--lh-body)',
+                  maxWidth: '220px',
                 }}
               >
-                Availability
-              </h4>
-              <p style={{ fontFamily: serifFont, fontSize: '0.975rem', color: 'var(--foreground)', opacity: 0.85, lineHeight: 1.6, maxWidth: '220px' }}>
                 Available for enterprise consulting, AI engineering, and technical advisory.
               </p>
             </div>
@@ -150,20 +102,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
         </div>
 
         {/* Bottom Line */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            paddingTop: '2rem',
-            borderTop: '1px solid var(--line)',
-            fontSize: '0.875rem',
-            fontFamily: serifFont,
-            color: 'var(--muted)',
-            flexWrap: 'wrap',
-            gap: '1rem',
-          }}
-        >
+        <div className="footer-bottom-bar">
           <div>© {new Date().getFullYear()} Mohamed Nifras. All rights reserved.</div>
 
           <button
@@ -171,11 +110,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             style={{
               display: 'inline-flex',
               alignItems: 'center',
-              gap: '0.4rem',
+              gap: 'var(--space-2)',
               color: 'var(--foreground)',
-              fontSize: '0.875rem',
-              fontWeight: 600,
-              fontFamily: serifFont,
+              fontSize: 'var(--text-sm)',
+              fontWeight: 'var(--fw-emphasis)',
             }}
           >
             <span>Back to top</span>
@@ -186,4 +124,3 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
     </footer>
   );
 };
-

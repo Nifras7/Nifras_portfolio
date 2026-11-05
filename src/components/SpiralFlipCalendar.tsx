@@ -150,7 +150,10 @@ export const SpiralFlipCalendar: React.FC = () => {
     const nextIdx = (curIndexRef.current + 1) % SKILLS.length;
     paint(underWordRef.current, underNoRef.current, nextIdx);
 
-    timerRef.current = setTimeout(triggerFlip, HOLD);
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      timerRef.current = setTimeout(triggerFlip, HOLD);
+    }
 
     return () => {
       if (timerRef.current) {
@@ -166,10 +169,16 @@ export const SpiralFlipCalendar: React.FC = () => {
       id="cal"
       ref={calRef}
       onClick={triggerFlip}
-      title="Click to flip discipline"
-      style={{
-        ['--cal-w' as unknown as string]: '7.2em',
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          triggerFlip();
+        }
       }}
+      role="button"
+      tabIndex={0}
+      aria-label="Flip to the next discipline"
+      title="Click to flip discipline"
     >
       <span className="cal__body">
         {/* Dark Desk Wedge / Stand */}

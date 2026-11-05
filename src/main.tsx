@@ -35,40 +35,31 @@ class RootErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: '2rem',
-            background: '#1A1818',
-            color: '#E8E4E0',
-            fontFamily: 'monospace',
+            padding: 'var(--space-8)',
+            background: 'var(--background)',
+            color: 'var(--foreground)',
           }}
         >
           <div
             style={{
               maxWidth: '640px',
               width: '100%',
-              background: '#252121',
-              border: '1px solid #302A2A',
-              borderRadius: '16px',
-              padding: '2rem',
+              background: 'var(--surface)',
+              border: '1px solid var(--line)',
+              borderRadius: 'var(--radius-card)',
+              padding: 'var(--space-8)',
             }}
           >
-            <h2 style={{ color: '#F87171', marginBottom: '1rem', fontSize: '1.25rem' }}>
+            <h2 style={{ color: 'var(--foreground)', marginBottom: 'var(--space-4)', fontSize: 'var(--text-lg)' }}>
               Application Render Error
             </h2>
-            <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', fontSize: '0.875rem' }}>
+            <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', fontSize: 'var(--text-sm)', color: 'var(--muted)' }}>
               {this.state.error?.stack || this.state.error?.message || String(this.state.error)}
             </pre>
             <button
               onClick={() => window.location.reload()}
-              style={{
-                marginTop: '1.5rem',
-                padding: '0.6rem 1.2rem',
-                borderRadius: '8px',
-                background: '#E8E4E0',
-                color: '#1A1818',
-                border: 'none',
-                fontWeight: 600,
-                cursor: 'pointer',
-              }}
+              className="btn-primary"
+              style={{ marginTop: 'var(--space-6)' }}
             >
               Reload Page
             </button>

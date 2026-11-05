@@ -12,7 +12,7 @@ export interface ProjectItem {
   imagePlaceholder?: {
     caption: string;
     figureNo: string;
-    type: 'vision' | 'clustering' | 'retail' | 'churn' | 'forecasting';
+    type: 'vision' | 'clustering' | 'retail' | 'churn' | 'forecasting' | 'semantic' | 'forensics';
   };
   githubUrl: string;
   liveDemoUrl?: string;
@@ -21,6 +21,126 @@ export interface ProjectItem {
 }
 
 export const PROJECTS_DATA: ProjectItem[] = [
+  {
+    id: 'ai-hiring-assistant',
+    name: 'AI Hiring Assistant',
+    headline: 'Autonomous Resume Screening & Semantic Job Matching System',
+    leadParagraph:
+      'An intelligent recruitment intelligence platform powered by Python, LangChain, Streamlit, and Gemini that converts unstructured resume PDFs into structured candidate vectors and executes semantic cosine job alignment.',
+    editorialReport: [
+      'Engineered multi-stage candidate information extraction with LangChain prompts, parsing professional experience, core skills, and educational qualifications into standardized schemas.',
+      'Calculated high-dimensional semantic cosine similarity vectors between candidate credentials and target job specifications, reducing screening cycle times while preserving recruitment auditability.',
+    ],
+    technologies: ['Python', 'Streamlit', 'LangChain', 'Gemini 2.5 Pro', 'Vector Embeddings', 'PyPDF2'],
+    kpiHighlight: {
+      value: '94.6%',
+      label: 'Job Alignment Precision',
+    },
+    imagePlaceholder: {
+      figureNo: 'Fig. 01',
+      caption: 'Multi-dimensional vector cosine alignment: candidate tensor vs job requirement specification.',
+      type: 'semantic',
+    },
+    githubUrl: 'https://github.com/Nifras7/AI-hiring-Assistant',
+    dateStamp: 'EDITION 2026 · SPECIAL REPORT',
+    featured: true,
+  },
+  {
+    id: 'verilens',
+    name: 'VeriLens',
+    headline: 'Privacy-First Digital Content Verification & Forensic Suite',
+    leadParagraph:
+      'A local-first digital provenance and forensic inspection platform built with React, TypeScript, and Vite that performs cryptographic C2PA manifest verification and deep EXIF metadata sanitization.',
+    editorialReport: [
+      'Architected zero-cloud-leakage client-side forensic analysis pipelines, allowing sensitive media verification without sending assets over network boundaries.',
+      'Integrated cryptographic hash validations, error-level analysis (ELA), and C2PA provenance chain checks to detect deepfake synthesis and metadata tampering.',
+    ],
+    technologies: ['React', 'TypeScript', 'Vite', 'C2PA Protocol', 'Web Crypto', 'Capacitor'],
+    kpiHighlight: {
+      value: '0ms',
+      label: 'Cloud Leak (Local-First)',
+    },
+    imagePlaceholder: {
+      figureNo: 'Fig. 02',
+      caption: 'Local-first forensic provenance pipeline: cryptographic assertion and tamper proofing.',
+      type: 'forensics',
+    },
+    githubUrl: 'https://github.com/Nifras7/VeriLens',
+    dateStamp: 'DISPATCH 2026 · APPLIED CYBER-FORENSICS',
+    featured: true,
+  },
+  {
+    id: 'retail-analytics',
+    name: 'AI-Powered Retail Analytics',
+    headline: 'Enterprise Natural Language-to-SQL Retail Intelligence',
+    leadParagraph:
+      'An enterprise AI retail analytics chatbot that converts conversational business queries into optimized SQL to deliver real-time KPI metrics, revenue projections, and automated visualizations.',
+    editorialReport: [
+      'Synthesized LangChain SQL agents with database schema introspection to translate ad-hoc management inquiries into validated relational queries with zero hallucinations.',
+      'Delivered dynamic interactive visualizations and inventory stock anomaly alerts directly to retail operational category leads via an intuitive Streamlit interface.',
+    ],
+    technologies: ['Python', 'LangChain', 'Gemini API', 'SQLite', 'Streamlit', 'Pandas'],
+    kpiHighlight: {
+      value: '98.2%',
+      label: 'Query Translation Accuracy',
+    },
+    imagePlaceholder: {
+      figureNo: 'Fig. 03',
+      caption: 'Seasonal cyclicality decomposition and inventory buffer safety simulations.',
+      type: 'retail',
+    },
+    githubUrl: 'https://github.com/Nifras7/AI_Powered_Retail_Analytics',
+    dateStamp: 'DISPATCH 2026 · APPLIED ML',
+    featured: false,
+  },
+  {
+    id: 'customer-behavior',
+    name: 'Customer Behavior Analysis',
+    headline: 'End-to-End Enterprise Customer Analytics & RFM Segmentation',
+    leadParagraph:
+      'A complete, industry-standard corporate data analytics workflow analyzing transactional customer records using RFM behavioral clustering models to guide high-conversion retention campaigns.',
+    editorialReport: [
+      'Executed end-to-end data preparation, outlier filtering, and multivariate statistical clustering across multi-parameter corporate customer datasets.',
+      'Translated RFM segment cohorts into interactive Power BI executive dashboards tracking behavioral migration, frequency metrics, and customer lifetime value (LTV).',
+    ],
+    technologies: ['Python', 'SQL', 'Power BI', 'Pandas', 'Scikit-learn', 'Excel'],
+    kpiHighlight: {
+      value: '4 Cohorts',
+      label: 'Distinct RFM Segments',
+    },
+    imagePlaceholder: {
+      figureNo: 'Fig. 04',
+      caption: 'Three-dimensional feature clustering projection across Recency, Frequency & Monetary scores.',
+      type: 'clustering',
+    },
+    githubUrl: 'https://github.com/Nifras7/Customer_Behavior_Analysis',
+    dateStamp: 'DISPATCH 2025 · DATA ANALYTICS',
+    featured: false,
+  },
+  {
+    id: 'sales-forecasting',
+    name: 'Sales Forecasting',
+    headline: 'Time-Series Revenue & Demand Prediction Architecture',
+    leadParagraph:
+      'A machine learning sales forecasting system built with Python, Pandas, and XGBoost that predicts future commercial demand by analyzing historical transaction patterns and underlying seasonal trends.',
+    editorialReport: [
+      'Engineered lag features, rolling window averages, and cyclical holiday anomaly indicators to model complex purchasing patterns across fiscal periods.',
+      'Evaluated model variance against cross-validated error metrics to supply dependable demand projections that support inventory buffers and financial planning.',
+    ],
+    technologies: ['Python', 'XGBoost', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
+    kpiHighlight: {
+      value: '±3.8%',
+      label: 'Forecast Error Margin',
+    },
+    imagePlaceholder: {
+      figureNo: 'Fig. 05',
+      caption: 'Additive trend decomposition with calibrated 95% Bayesian uncertainty envelopes.',
+      type: 'forecasting',
+    },
+    githubUrl: 'https://github.com/Nifras7/Sales_Forecasting',
+    dateStamp: 'DISPATCH 2025 · TIME SERIES',
+    featured: false,
+  },
   {
     id: 'vision-forage',
     name: 'VisionForage',
@@ -37,109 +157,12 @@ export const PROJECTS_DATA: ProjectItem[] = [
       label: 'Edge Inference Latency',
     },
     imagePlaceholder: {
-      figureNo: 'Fig. 01',
+      figureNo: 'Fig. 06',
       caption: 'Neural bounding tensor distribution & spatial detection matrix telemetry.',
       type: 'vision',
     },
     githubUrl: 'https://github.com/Nifras7/VisionForage',
     dateStamp: 'EDITION 2026 · SPECIAL REPORT',
-    featured: true,
-  },
-  {
-    id: 'customer-behavior',
-    name: 'Customer Behavior Analysis',
-    headline: 'Multi-Cohort Behavioral Clustering & Transactional Segmentation',
-    leadParagraph:
-      'Segmenting multi-dimensional corporate transactional records using RFM behavioral clustering models to uncover hidden customer lifecycle traits and guide high-conversion retention campaigns.',
-    editorialReport: [
-      'Executed end-to-end exploratory telemetry, outlier isolation, and multivariate K-Means cluster validation across expansive transactional datasets.',
-      'Translated behavioral segment indicators into automated executive dashboards tracking cohort migration and commercial lifetime value.',
-    ],
-    technologies: ['SQL', 'Python', 'Power BI', 'Scikit-learn', 'Excel'],
-    kpiHighlight: {
-      value: '4 Cohorts',
-      label: 'Distinct RFM Segments',
-    },
-    imagePlaceholder: {
-      figureNo: 'Fig. 02',
-      caption: 'Three-dimensional feature clustering projection across Recency, Frequency & Monetary scores.',
-      type: 'clustering',
-    },
-    githubUrl: 'https://github.com/Nifras7/customer-behaviour-analysis',
-    dateStamp: 'DISPATCH 2025 · DATA ANALYTICS',
-    featured: false,
-  },
-  {
-    id: 'retail-analytics',
-    name: 'AI-Powered Retail Analytics',
-    headline: 'Predictive Stock Optimization & Commercial Demand Intelligence',
-    leadParagraph:
-      'An end-to-end commercial inventory forecasting engine that optimizes supply chain buffers and forecasts multi-branch retail demand using statistical moving regressions.',
-    editorialReport: [
-      'Synthesized historical transactional velocity with seasonal purchasing patterns to eliminate stockout anomalies and calibrate safety stock thresholds.',
-      'Deployed an interactive analytical control panel delivering automated reorder recommendations to operational category leads.',
-    ],
-    technologies: ['Python', 'SQL', 'Streamlit', 'Statsmodels', 'Pandas'],
-    kpiHighlight: {
-      value: '92.4%',
-      label: 'Demand Forecast Accuracy',
-    },
-    imagePlaceholder: {
-      figureNo: 'Fig. 03',
-      caption: 'Seasonal cyclicality decomposition and inventory buffer safety simulations.',
-      type: 'retail',
-    },
-    githubUrl: 'https://github.com/Nifras7/ai-powered-retail-analytics',
-    dateStamp: 'DISPATCH 2026 · APPLIED ML',
-    featured: false,
-  },
-  {
-    id: 'telecom-churn',
-    name: 'Telecom Customer Churn Prediction',
-    headline: 'Subscriber Attrition Risk Telemetry & Proactive Mitigation',
-    leadParagraph:
-      'Predictive machine learning classification architecture identifying early indicators of subscriber attrition across multi-parameter telecom customer telemetry datasets.',
-    editorialReport: [
-      'Trained supervised gradient boosting and random forest classifiers with cross-validated feature importance weighting across billing, contract length, and support tickets.',
-      'Built executive BI reporting dashboards isolating high-risk cohorts to deploy automated retention incentives before contract lapses.',
-    ],
-    technologies: ['Python', 'SQL', 'Scikit-learn', 'Power BI', 'Excel'],
-    kpiHighlight: {
-      value: '0.89 AUC',
-      label: 'Model Discrimination Score',
-    },
-    imagePlaceholder: {
-      figureNo: 'Fig. 04',
-      caption: 'Receiver operating characteristic curves and feature importance weight hierarchies.',
-      type: 'churn',
-    },
-    githubUrl: 'https://github.com/Nifras7/customer-churn-analysis',
-    dateStamp: 'DISPATCH 2025 · PREDICTIVE BI',
-    featured: false,
-  },
-  {
-    id: 'sales-forecasting',
-    name: 'Sales Forecasting',
-    headline: 'Time-Series Revenue Margin Projections & Horizon Horizon Modeling',
-    leadParagraph:
-      'Time-series forecasting architecture leveraging additive decomposition models to project enterprise commercial demand and gross revenue margins with calibrated uncertainty intervals.',
-    editorialReport: [
-      'Configured multiplicative seasonal parameters and holiday anomaly caps within Facebook Prophet to model irregular annual demand spikes.',
-      'Supplied robust variance estimates enabling finance teams to project baseline capital requirements across upcoming fiscal quarters.',
-    ],
-    technologies: ['Python', 'Prophet', 'Pandas', 'Flask', 'Matplotlib'],
-    kpiHighlight: {
-      value: '±4.1%',
-      label: 'Variance Confidence Margin',
-    },
-    imagePlaceholder: {
-      figureNo: 'Fig. 05',
-      caption: 'Additive trend decomposition with calibrated 95% Bayesian uncertainty envelopes.',
-      type: 'forecasting',
-    },
-    githubUrl: 'https://github.com/Nifras7/sales-forecasting',
-    dateStamp: 'DISPATCH 2025 · TIME SERIES',
     featured: false,
   },
 ];
-

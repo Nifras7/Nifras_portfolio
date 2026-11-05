@@ -51,17 +51,7 @@ export const WorkNewspaper: React.FC<WorkNewspaperProps> = ({
         <div className="single-sheet-grid" style={{ flexGrow: 1 }}>
           {/* Left Editorial Narrative Column */}
           <div className="single-sheet-lead-col">
-            <div
-              style={{
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.6875rem',
-                fontWeight: 600,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                color: 'var(--news-ink-muted)',
-                marginBottom: '0.45rem',
-              }}
-            >
+            <div className="news-caps-label">
               ★ SPECIAL INVESTIGATION · {project.dateStamp}
             </div>
 
@@ -84,22 +74,7 @@ export const WorkNewspaper: React.FC<WorkNewspaperProps> = ({
 
           {/* Right Supporting Visual & Technical Telemetry Column */}
           <div className="single-sheet-supporting-col">
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                paddingBottom: '0.5rem',
-                marginBottom: '0.75rem',
-                borderBottom: '2px solid var(--news-rule-heavy)',
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.6875rem',
-                fontWeight: 700,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--news-ink)',
-              }}
-            >
+            <div className="news-col-header">
               <span>TELEMETRY & SCHEMATIC</span>
               {project.kpiHighlight && (
                 <span style={{ color: 'var(--news-ink-muted)' }}>{project.kpiHighlight.label}</span>
@@ -108,7 +83,7 @@ export const WorkNewspaper: React.FC<WorkNewspaperProps> = ({
 
             {/* KPI Highlight */}
             {project.kpiHighlight && (
-              <div className="editorial-kpi-badge" style={{ marginBottom: '0.75rem' }}>
+              <div className="editorial-kpi-badge" style={{ marginBottom: 'var(--space-3)' }}>
                 <span className="editorial-kpi-val">{project.kpiHighlight.value}</span>
                 <span className="editorial-kpi-lbl">{project.kpiHighlight.label}</span>
               </div>
@@ -124,17 +99,8 @@ export const WorkNewspaper: React.FC<WorkNewspaperProps> = ({
             )}
 
             {/* Technologies */}
-            <div style={{ marginTop: '0.5rem' }}>
-              <div
-                style={{
-                  fontFamily: 'var(--news-font-mono)',
-                  fontSize: '0.625rem',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: 'var(--news-ink-muted)',
-                  marginBottom: '0.35rem',
-                }}
-              >
+            <div style={{ marginTop: 'var(--space-2)' }}>
+              <div className="news-field-header">
                 DEPLOYED STACK & LIBRARIES:
               </div>
               <div className="news-tag-group" style={{ margin: 0 }}>

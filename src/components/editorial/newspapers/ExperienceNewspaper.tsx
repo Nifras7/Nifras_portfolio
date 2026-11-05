@@ -60,21 +60,17 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
                 alignItems: 'center',
                 justifyContent: 'space-between',
                 flexWrap: 'wrap',
-                gap: '0.5rem',
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.75rem',
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                color: 'var(--news-ink-muted)',
-                marginBottom: '0.65rem',
+                gap: 'var(--space-2)',
+                marginBottom: 'var(--space-3)',
               }}
+              className="news-caps-label"
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--news-ink)', fontWeight: 700 }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', color: 'var(--news-ink)', fontWeight: 'var(--fw-heading)' }}>
                 <Building2 size={14} />
                 <span>{story.company}</span>
               </div>
 
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-4)' }}>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
                   <Calendar size={12} />
                   {story.duration}
@@ -89,7 +85,7 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
             <h2 className="sheet-article-headline">{story.headline}</h2>
 
             <div className="sheet-byline">
-              <span style={{ fontWeight: 700, color: 'var(--news-ink)' }}>DESIGNATION: {story.role.toUpperCase()}</span>
+              <span style={{ fontWeight: 'var(--fw-heading)', color: 'var(--news-ink)' }}>DESIGNATION: {story.role.toUpperCase()}</span>
               <span>·</span>
               <span>{story.byline}</span>
               {story.verifiedProject && (
@@ -100,7 +96,7 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
               )}
             </div>
 
-            <p className="sheet-body-text sheet-drop-cap" style={{ fontSize: '1rem', fontStyle: 'italic' }}>
+            <p className="sheet-body-text sheet-drop-cap" style={{ fontStyle: 'italic' }}>
               {story.leadParagraph}
             </p>
 
@@ -113,19 +109,7 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
 
           {/* Right Column: Key Deliverables & Certified Stack */}
           <div className="single-sheet-supporting-col">
-            <div
-              style={{
-                paddingBottom: '0.5rem',
-                marginBottom: '0.85rem',
-                borderBottom: '2px solid var(--news-rule-heavy)',
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.6875rem',
-                fontWeight: 700,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--news-ink)',
-              }}
-            >
+            <div className="news-col-header">
               RECORD OF DUTIES & DELIVERABLES
             </div>
 
@@ -135,21 +119,11 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
                 background: 'var(--news-paper-dark)',
                 border: '1px solid var(--news-rule)',
                 borderLeft: '3px solid var(--news-ink)',
-                padding: '1.15rem',
-                marginBottom: '1.25rem',
+                padding: 'var(--space-4)',
+                marginBottom: 'var(--space-4)',
               }}
             >
-              <div
-                style={{
-                  fontFamily: 'var(--news-font-mono)',
-                  fontSize: '0.6875rem',
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: 'var(--news-ink)',
-                  marginBottom: '0.75rem',
-                }}
-              >
+              <div className="news-field-header" style={{ marginBottom: 'var(--space-3)', fontWeight: 'var(--fw-heading)', color: 'var(--news-ink)' }}>
                 DELIVERED OUTPUTS & IMPACT:
               </div>
 
@@ -160,22 +134,11 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
                   margin: 0,
                   display: 'flex',
                   flexDirection: 'column',
-                  gap: '0.65rem',
+                  gap: 'var(--space-2)',
                 }}
               >
                 {story.bulletContributions.map((contrib, cIdx) => (
-                  <li
-                    key={cIdx}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'flex-start',
-                      gap: '0.5rem',
-                      fontFamily: 'var(--news-font-sans)',
-                      fontSize: '0.875rem',
-                      lineHeight: 1.5,
-                      color: 'var(--news-ink-soft)',
-                    }}
-                  >
+                  <li key={cIdx} className="news-deliverable-item">
                     <CheckCircle2 size={13} style={{ color: 'var(--news-ink)', marginTop: '0.2rem', flexShrink: 0 }} />
                     <span>{contrib}</span>
                   </li>
@@ -185,16 +148,7 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
 
             {/* Verified Technologies */}
             <div>
-              <div
-                style={{
-                  fontFamily: 'var(--news-font-mono)',
-                  fontSize: '0.625rem',
-                  letterSpacing: '0.08em',
-                  textTransform: 'uppercase',
-                  color: 'var(--news-ink-muted)',
-                  marginBottom: '0.35rem',
-                }}
-              >
+              <div className="news-field-header">
                 VERIFIED TOOLSET & TECHNOLOGIES:
               </div>
               <div className="news-tag-group" style={{ margin: 0 }}>
@@ -207,16 +161,7 @@ export const ExperienceNewspaper: React.FC<ExperienceNewspaperProps> = ({
             </div>
 
             {/* Verification Stamp Box */}
-            <div
-              style={{
-                marginTop: 'auto',
-                paddingTop: '1rem',
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.6875rem',
-                color: 'var(--news-ink-muted)',
-                borderTop: '1px solid var(--news-rule)',
-              }}
-            >
+            <div className="news-status-footer">
               STATUS: AUDITED INDUSTRIAL TENURE · VERIFIED
             </div>
           </div>

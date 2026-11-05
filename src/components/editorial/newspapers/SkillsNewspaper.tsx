@@ -50,19 +50,7 @@ export const SkillsNewspaper: React.FC<SkillsNewspaperProps> = ({
         <div className="single-sheet-grid" style={{ flexGrow: 1 }}>
           {/* Left Column: Category Narrative */}
           <div className="single-sheet-lead-col">
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '0.4rem',
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.6875rem',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--news-ink-muted)',
-                marginBottom: '0.5rem',
-              }}
-            >
+            <div className="news-caps-label" style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
               <Code2 size={13} />
               <span>[{category.sectionCode}] · SPECIALIZED DOMAIN REPORT</span>
             </div>
@@ -88,96 +76,40 @@ export const SkillsNewspaper: React.FC<SkillsNewspaperProps> = ({
 
           {/* Right Column: High-Density Technical Item Breakdown */}
           <div className="single-sheet-supporting-col">
-            <div
-              style={{
-                paddingBottom: '0.5rem',
-                marginBottom: '0.85rem',
-                borderBottom: '2px solid var(--news-rule-heavy)',
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.6875rem',
-                fontWeight: 700,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'var(--news-ink)',
-              }}
-            >
+            <div className="news-col-header">
               VERIFIED CORE CAPABILITIES & REPERTOIRE
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
               {category.skills.map((skill) => (
-                <div
-                  key={skill.name}
-                  style={{
-                    padding: '0.85rem 1rem',
-                    background: 'var(--news-paper-dark)',
-                    border: '1px solid var(--news-rule)',
-                    borderRadius: '2px',
-                  }}
-                >
+                <div key={skill.name} className="news-skill-card">
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'space-between',
-                      marginBottom: '0.4rem',
+                      marginBottom: 'var(--space-1)',
                     }}
                   >
-                    <h4
-                      style={{
-                        fontFamily: 'var(--news-font-sans)',
-                        fontSize: '0.9375rem',
-                        fontWeight: 700,
-                        color: 'var(--news-ink)',
-                        margin: 0,
-                      }}
-                    >
+                    <h4 className="news-skill-title">
                       {skill.name}
                     </h4>
 
                     {skill.tag && (
-                      <span
-                        style={{
-                          fontFamily: 'var(--news-font-mono)',
-                          fontSize: '0.625rem',
-                          padding: '0.15rem 0.45rem',
-                          background: 'var(--news-ink)',
-                          color: 'var(--news-paper)',
-                          borderRadius: '2px',
-                          fontWeight: 600,
-                          letterSpacing: '0.05em',
-                        }}
-                      >
+                      <span className="news-skill-tag">
                         {skill.tag}
                       </span>
                     )}
                   </div>
 
-                  <p
-                    style={{
-                      fontFamily: 'var(--news-font-sans)',
-                      fontSize: '0.8125rem',
-                      lineHeight: 1.5,
-                      color: 'var(--news-ink-muted)',
-                      margin: 0,
-                    }}
-                  >
+                  <p className="news-skill-desc">
                     {skill.description}
                   </p>
                 </div>
               ))}
             </div>
 
-            <div
-              style={{
-                marginTop: 'auto',
-                paddingTop: '1rem',
-                fontFamily: 'var(--news-font-mono)',
-                fontSize: '0.6875rem',
-                color: 'var(--news-ink-muted)',
-                borderTop: '1px solid var(--news-rule)',
-              }}
-            >
+            <div className="news-status-footer">
               ASSESSMENT: 100% PRODUCTION VERIFIED · NO FABRICATED METRICS
             </div>
           </div>

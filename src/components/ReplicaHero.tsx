@@ -147,10 +147,10 @@ export const ReplicaHero: React.FC<ReplicaHeroProps> = ({
         {/* Hero Content: Headline, Calendar & Action CTAs */}
         <div className="shell hero__content">
           <div className="hero__left">
-            <p className="eyebrow rv" style={{ fontFamily: "'EB Garamond', Georgia, 'Times New Roman', serif", fontStyle: 'italic', fontSize: '1.05rem', letterSpacing: '0.03em' }}>
+            <p className="eyebrow rv">
               CEO of AIstratX · Open to opportunities
             </p>
-            <h1 className="h1" style={{ fontFamily: "'EB Garamond', Georgia, 'Times New Roman', serif", fontWeight: 700, letterSpacing: '-0.015em' }}>
+            <h1 className="h1">
               <span className="line"><span>Hi, I'm Nifras.</span></span>
               <span className="line"><span className="soft">I am an</span></span>
               <span className="cal-line">
@@ -158,11 +158,10 @@ export const ReplicaHero: React.FC<ReplicaHeroProps> = ({
               </span>
             </h1>
 
-            <div className="ctas rv" style={{ fontFamily: "'EB Garamond', Georgia, 'Times New Roman', serif" }}>
+            <div className="ctas rv">
               <button
                 className="pill pill--dark pill--arrow"
                 onClick={onOpenHireModal}
-                style={{ fontFamily: "'EB Garamond', Georgia, 'Times New Roman', serif", fontSize: '1rem', letterSpacing: '0.03em' }}
               >
                 <span className="pill__in">
                   Start a project
@@ -188,7 +187,6 @@ export const ReplicaHero: React.FC<ReplicaHeroProps> = ({
                 href="https://github.com/Nifras7"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ fontFamily: "'EB Garamond', Georgia, 'Times New Roman', serif", fontSize: '1rem', letterSpacing: '0.03em' }}
               >
                 <span className="pill__in">Explore GitHub</span>
               </a>
@@ -197,18 +195,16 @@ export const ReplicaHero: React.FC<ReplicaHeroProps> = ({
         </div>
 
         {/* Bottom Ticker Status Bar */}
-        <div className="shell hero__bar rv" style={{ fontFamily: "'EB Garamond', Georgia, 'Times New Roman', serif", fontSize: '1rem' }}>
+        <div className="shell hero__bar rv">
           <span>AI & Data Systems</span>
-          <span className="mid" style={{ fontStyle: 'italic' }}>Chennai, India · Remote-First</span>
-          <span
+          <span className="mid">Chennai, India · Remote-First</span>
+          <button
+            type="button"
             className="scroll"
             onClick={onSeeWork}
-            role="button"
-            tabIndex={0}
-            style={{ fontFamily: "'EB Garamond', Georgia, 'Times New Roman', serif" }}
           >
             Scroll to explore <i aria-hidden="true">↓</i>
-          </span>
+          </button>
         </div>
       </section>
   );
